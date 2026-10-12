@@ -1,0 +1,15 @@
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\CalculatorApplication.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\config\CorsConfig.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\config\SecurityConfig.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\controller\AuthController.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\controller\CalculatorController.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\controller\HistoryController.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\dto\CalculationRequest.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\dto\LoginRequest.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\dto\RegisterRequest.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\entity\CalculationHistory.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\entity\User.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\repository\CalculationHistoryRepository.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\repository\UserRepository.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\security\JwtService.java
+C:\Users\vigne\OneDrive\Desktop\CalculatorApplication\backend\src\main\java\com\example\calculator\service\CalculatorService.java
