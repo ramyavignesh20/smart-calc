@@ -23,8 +23,8 @@ export default function Register() {
   };
 
   return (
-    <Box sx={{minHeight:"100vh",display:"grid",placeItems:"center",background:"#F5F3FF",p:2}}>
-      <Card sx={{width:"100%",maxWidth:430}}>
+    <Box sx={{minHeight:"100vh",display:"grid",placeItems:"center",backgroundColor:"background.default",p:2}}>
+      <Card sx={{width:"100%",maxWidth:430,border:1,borderColor:"divider"}}>
         <CardContent sx={{p:4}}>
           <Typography variant="h4" color="primary" fontWeight="bold" gutterBottom>Create Account</Typography>
           {message && <Alert severity="success" sx={{mb:2}}>{message}</Alert>}

@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
@@ -11,17 +11,19 @@ import { BmiCalculator, MathCalculator, TrigonometryCalculator, InterestCalculat
 
 export default function App() {
   const isAuthenticated = Boolean(localStorage.getItem("token"));
+  const location = useLocation();
+  const showNavigation = isAuthenticated && !["/login", "/register"].includes(location.pathname);
 
   return (
     <LanguageProvider>
-      <div className={isAuthenticated ? "app-shell app-shell-authenticated" : "app-shell"}>
-        {isAuthenticated && <Navbar />}
+      <div className={showNavigation ? "app-shell app-shell-authenticated" : "app-shell"}>
+        {showNavigation && <Navbar />}
         <div className="app-main-content">
           <main className="app-content">
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/" element={<Navigate to="/login" replace />} />
               <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
               <Route path="/settings" element={<Navigate to="/dashboard" replace />} />
               <Route path="/history" element={<ProtectedRoute><History /></ProtectedRoute>} />

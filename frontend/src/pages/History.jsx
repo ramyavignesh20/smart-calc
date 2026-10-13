@@ -45,8 +45,8 @@ export default function History() {
   };
 
   return <>
-    <Box sx={{p:3}}>
-      <Typography variant="h4" color="primary" fontWeight="bold" gutterBottom>Calculation History</Typography>
+    <Box sx={{ px: { xs: 2, sm: 3, lg: 5 }, py: { xs: 4, sm: 6 }, maxWidth: 1440, mx: "auto" }}>
+      <Typography variant="h4" fontWeight="bold" gutterBottom>Calculation History</Typography>
       <Card>
         <CardContent>
           {error && <Typography color="error" role="alert" sx={{ mb: 2 }}>{error}</Typography>}

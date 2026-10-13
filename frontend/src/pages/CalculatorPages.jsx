@@ -70,7 +70,7 @@ function useCalculationHistory() {
 
 function CalculatorCard({ title, children, historyError }) {
   return (
-    <Box sx={{ maxWidth: 700, mx: "auto" }}>
+    <Box sx={{ maxWidth: 760, mx: "auto", px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
       <Typography variant="h4" fontWeight="bold" mb={3}>
         {title}
       </Typography>
@@ -80,7 +80,10 @@ function CalculatorCard({ title, children, historyError }) {
         sx={{
           p: 3,
           borderRadius: 3,
-          backgroundColor: "#F5F3FF",
+          backgroundColor: "background.paper",
+          border: 1,
+          borderColor: "divider",
+          boxShadow: "0 4px 18px rgba(0, 0, 0, 0.04)",
         }}
       >
         {historyError && (

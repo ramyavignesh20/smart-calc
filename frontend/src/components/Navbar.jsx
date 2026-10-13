@@ -10,6 +10,7 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
+  Typography,
 } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import HistoryIcon from "@mui/icons-material/History";
@@ -17,6 +18,14 @@ import LanguageIcon from "@mui/icons-material/Language";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import CalculateIcon from "@mui/icons-material/Calculate";
+import MonitorWeightIcon from "@mui/icons-material/MonitorWeight";
+import PercentIcon from "@mui/icons-material/Percent";
+import SquareFootIcon from "@mui/icons-material/SquareFoot";
+import FunctionsIcon from "@mui/icons-material/Functions";
+import StraightenIcon from "@mui/icons-material/Straighten";
+import HomeWorkIcon from "@mui/icons-material/HomeWork";
+import ShowChartIcon from "@mui/icons-material/ShowChart";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import BrandLogo from "./BrandLogo";
@@ -44,9 +53,27 @@ export default function Navbar() {
     { label: t("dashboard"), path: "/dashboard", icon: <DashboardIcon /> },
     { label: t("history"), path: "/history", icon: <HistoryIcon /> },
   ];
+  const calculatorLinks = [
+    { label: t("bmi"), path: "/calculator/bmi", icon: <MonitorWeightIcon /> },
+    { label: t("math"), path: "/calculator/math", icon: <CalculateIcon /> },
+    { label: t("trigonometry"), path: "/calculator/trigonometry", icon: <ShowChartIcon /> },
+    { label: t("interest"), path: "/calculator/interest", icon: <PercentIcon /> },
+    { label: t("discount"), path: "/calculator/discount", icon: <PercentIcon /> },
+    { label: t("root"), path: "/calculator/root", icon: <FunctionsIcon /> },
+    { label: t("land"), path: "/calculator/land", icon: <SquareFootIcon /> },
+    { label: t("length"), path: "/calculator/length", icon: <StraightenIcon /> },
+    { label: t("area"), path: "/calculator/area", icon: <HomeWorkIcon /> },
+  ];
+  const navigationItemSx = {
+    borderRadius: 2,
+    mb: 0.5,
+    color: "text.secondary",
+    "&.Mui-selected": { color: "text.primary", bgcolor: "#f0f0f0", fontWeight: 600 },
+    "&.Mui-selected:hover": { bgcolor: "#e5e5e5" },
+  };
 
   const drawerContent = (
-    <Box sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
+    <Box sx={{ height: "100%", display: "flex", flexDirection: "column", overflowY: "auto" }}>
       <Toolbar sx={{ px: 2 }}>
         <BrandLogo />
         <IconButton
@@ -67,7 +94,29 @@ export default function Navbar() {
               navigate(path);
               closeSidebar();
             }}
-            sx={{ borderRadius: 2, mb: 0.5 }}
+            sx={navigationItemSx}
+          >
+            <ListItemIcon sx={{ minWidth: 40, color: "inherit" }}>{icon}</ListItemIcon>
+            <ListItemText primary={label} />
+          </ListItemButton>
+        ))}
+      </List>
+      <Typography
+        variant="overline"
+        sx={{ px: 3, pt: 0.5, color: "text.secondary", fontWeight: 700, letterSpacing: ".08em" }}
+      >
+        Calculators
+      </Typography>
+      <List sx={{ px: 1.5, pt: 0.75, pb: 1 }}>
+        {calculatorLinks.map(({ label, path, icon }) => (
+          <ListItemButton
+            key={path}
+            selected={location.pathname === path}
+            onClick={() => {
+              navigate(path);
+              closeSidebar();
+            }}
+            sx={navigationItemSx}
           >
             <ListItemIcon sx={{ minWidth: 40, color: "inherit" }}>{icon}</ListItemIcon>
             <ListItemText primary={label} />

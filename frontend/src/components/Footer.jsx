@@ -1,70 +1,168 @@
+import React from "react";
 import {
   Box,
+  Container,
+  Typography,
   Link,
   Stack,
-  Typography,
+  Divider,
 } from "@mui/material";
-import BrandLogo from "./BrandLogo";
-
-const profileKey = "calculatorContactProfile";
-const profile = {
-  name: "Ramyavignesh",
-  email: "ramya853144@gmail.com",
-  phone: "9876543210",
-};
-
-function readGithubProfile() {
-  const savedProfile = JSON.parse(localStorage.getItem(profileKey) || "{}");
-  return savedProfile.github ?? "";
-}
-
-function githubProfileUrl(value) {
-  const profile = value.trim();
-  if (/^https:\/\/github\.com\/[\w-]+\/?$/.test(profile)) return profile;
-  if (/^[\w-]+$/.test(profile)) return `https://github.com/${profile}`;
-  return "";
-}
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 export default function Footer() {
-  const github = readGithubProfile();
-  const githubUrl = githubProfileUrl(github);
-
   return (
-    <Box component="footer" sx={{ bgcolor: "primary.dark", color: "white", px: 2, py: 2.5 }}>
-      <Box
-        sx={{
-          maxWidth: 1200,
-          mx: "auto",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 2,
-        }}
-      >
-        <Box>
-          <BrandLogo footer />
-          <Typography variant="body2" sx={{ opacity: 0.85 }}>
-            © {new Date().getFullYear()} {profile.name}
+    <Box
+      component="footer"
+      sx={{
+        width: "100%",
+        backgroundColor: "#171717",
+        color: "#ffffff",
+        mt: "auto",
+      }}
+    >
+      <Container maxWidth="lg">
+        <Box
+          sx={{
+            py: 1,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 1,
+          }}
+        >
+
+          <Box>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 700,
+                color: "#ffffff",
+              }}
+            >
+              Smart Calculator
+            </Typography>
+          </Box>
+
+          <Stack
+            direction="row"
+            spacing={1}
+            alignItems="center"
+            flexWrap="wrap"
+          >
+
+            <Link
+              href="mailto:ramya853144@gmail.com"
+              underline="none"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 0.5,
+                color: "#ffffff",
+                "&:hover": {
+                  color: "#d4d4d4",
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              <EmailIcon fontSize="small" />
+              <Typography variant="body2">
+                ramya853144@gmail.com
+              </Typography>
+            </Link>
+
+            <Link
+              href="tel:+919876543210"
+              underline="none"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 0.5,
+                color: "#ffffff",
+                "&:hover": {
+                  color: "#d4d4d4",
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              <PhoneIcon fontSize="small" />
+              <Typography variant="body2">
+                +91 98765 43210
+              </Typography>
+            </Link>
+
+            <Link
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="none"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 0.5,
+                color: "#ffffff",
+                "&:hover": {
+                  color: "#d4d4d4",
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              <GitHubIcon fontSize="small" />
+              <Typography variant="body2">
+                GitHub
+              </Typography>
+            </Link>
+
+            <Link
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="none"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 0.5,
+                color: "#ffffff",
+                "&:hover": {
+                  color: "#d4d4d4",
+                  textDecoration: "underline",
+                },
+              }}
+            >
+              <LinkedInIcon fontSize="small" />
+              <Typography variant="body2">
+                LinkedIn
+              </Typography>
+            </Link>
+
+          </Stack>
+        </Box>
+
+        <Divider sx={{ borderColor: "#404040" }} />
+
+        <Box
+          sx={{
+            py: 0.35,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 1,
+          }}
+        >
+          <Typography variant="body2" sx={{ color: "#a3a3a3" }}>
+            © {new Date().getFullYear()} Smart Calculator
+          </Typography>
+
+          <Typography variant="body2" sx={{ color: "#a3a3a3" }}>
+            Developed by Ramyavignesh
           </Typography>
         </Box>
-        <Stack direction="row" flexWrap="wrap" gap={2} alignItems="center">
-          <Typography variant="body2">
-            Email: <Link color="inherit" href={`mailto:${profile.email}`}>{profile.email}</Link>
-          </Typography>
-          <Typography variant="body2">
-            Phone: <Link color="inherit" href={`tel:${profile.phone}`}>{profile.phone}</Link>
-          </Typography>
-          <Typography variant="body2">
-            GitHub:{" "}
-            {githubUrl ? (
-              <Link color="inherit" href={githubUrl} target="_blank" rel="noreferrer">
-                {github}
-              </Link>
-            ) : "Not provided"}
-          </Typography>
-        </Stack>
-      </Box>
+
+      </Container>
     </Box>
   );
 }
