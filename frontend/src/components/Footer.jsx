@@ -37,7 +37,7 @@ export default function Footer() {
 
           <Box>
             <Typography
-              variant="h6"
+              variant="h10"
               sx={{
                 fontWeight: 700,
                 color: "#ffffff",

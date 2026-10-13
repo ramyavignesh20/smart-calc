@@ -208,24 +208,21 @@ export default function Dashboard() {
 
   return (
     <Box
+      className="dashboard-page"
       sx={{
-        minHeight: { xs: "auto", md: "calc(100vh - 64px)" },
+        minHeight: 0,
         display: "grid",
         placeItems: "center",
-        px: 2,
-        py: { xs: 4, md: 6 },
+        px: { xs: 1.5, sm: 2 },
+        py: { xs: 0.75, sm: 1.25, md: 1.5 },
       }}
     >
       <Box sx={{ width: "100%", maxWidth: 440 }}>
-        <Typography variant="h4" sx={{ mb: 1 }}>Calculator</Typography>
-        <Typography color="text.secondary" sx={{ mb: 3 }}>
-          Enter a number, choose an operation, enter the next number, then press equals.
-        </Typography>
 
         <Paper
           elevation={0}
           sx={{
-            p: { xs: 2, sm: 3 },
+            p: { xs: 1.25, sm: 2 },
             border: 1,
             borderColor: "divider",
             boxShadow: "0 12px 40px rgba(0, 0, 0, 0.06)",
@@ -234,10 +231,10 @@ export default function Dashboard() {
           <Box
             aria-live="polite"
             sx={{
-              minHeight: 118,
-              mb: 2,
-              px: 2.5,
-              py: 2,
+              minHeight: "clamp(68px, 12vh, 104px)",
+              mb: 1,
+              px: 2,
+              py: 1.25,
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
@@ -270,12 +267,12 @@ export default function Dashboard() {
           </Box>
 
           {historyError && (
-            <Alert severity="info" sx={{ mb: 2 }}>
+            <Alert severity="info" sx={{ mb: 1 }}>
               {historyError}
             </Alert>
           )}
 
-          <Box sx={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 1 }}>
+          <Box sx={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 0.75 }}>
             {keys.map(({ label, action, utility, icon, wide, equals, operation: keyOperation }) => (
               <Button
                 key={label}
@@ -284,7 +281,7 @@ export default function Dashboard() {
                 onClick={action}
                 sx={{
                   minWidth: 0,
-                  minHeight: 58,
+                  minHeight: "clamp(38px, 6.5vh, 54px)",
                   gridColumn: wide ? "span 2" : undefined,
                   borderColor: utility || keyOperation ? "transparent" : "divider",
                   bgcolor: utility ? "#f0f0f0" : equals || keyOperation ? "primary.main" : "#ffffff",
@@ -300,9 +297,7 @@ export default function Dashboard() {
               </Button>
             ))}
           </Box>
-          <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 2, textAlign: "center" }}>
-            Keyboard shortcuts: numbers, +, −, ×, ÷, Enter, Backspace, Esc
-          </Typography>
+        
         </Paper>
       </Box>
     </Box>

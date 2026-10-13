@@ -18,7 +18,7 @@ export default function App() {
     <LanguageProvider>
       <div className={showNavigation ? "app-shell app-shell-authenticated" : "app-shell"}>
         {showNavigation && <Navbar />}
-        <div className="app-main-content">
+        <div className={`app-main-content${location.pathname === "/dashboard" ? " dashboard-main-content" : ""}`}>
           <main className="app-content">
             <Routes>
               <Route path="/login" element={<Login />} />
